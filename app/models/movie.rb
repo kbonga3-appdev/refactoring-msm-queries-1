@@ -13,4 +13,16 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+  def title_with_yr
+    
+
+    return "#{self.title} (#{self.year})"
+  end
+
+  def director
+    id = self.director_id
+    match_director = Director.where({ :id => id })
+    the_director =  match_director.at(0)
+    return the_director
+  end
 end
