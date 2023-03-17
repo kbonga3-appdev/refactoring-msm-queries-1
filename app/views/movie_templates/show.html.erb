@@ -1,5 +1,5 @@
 <h1>
-  Movie #<%= @the_movie.id %> details
+  Movie #<%= @the_movie.director.name %> details
 </h1>
 
 <a href="/movies">
@@ -48,13 +48,10 @@
     Director
   </dt>
   <dd>
-    <% dir_id = @the_movie.director_id %>
-    
-    <% matching_directors = Director.where({ :id => dir_id }) %>
-    
-    <% the_director = matching_directors.at(0) %>
-
-    <%= the_director.name %>
+    <%# dir_id = @the_movie.director_id %>
+    <%# matching_directors = Director.where({ :id => dir_id }) %>
+    <%#the_director = matching_directors.at(0) %>
+    <%= @the_movie.director.name %>">
   </dd>
 
   <dt>
@@ -62,6 +59,7 @@
   </dt>
   <dd>
     <%= @the_movie.created_at %>
+   
   </dd>
 
   <dt>
@@ -69,6 +67,7 @@
   </dt>
   <dd>
     <%= @the_movie.updated_at %>
+        
   </dd>
 </dl>
 
